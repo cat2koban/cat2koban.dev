@@ -50,3 +50,12 @@
 .lightText {
   color: #666;
 }
+
+.postDateText {
+  color: #666;
+  font-size: 14px;
+}
+
+.postTitleText {
+  font-size: 18px;
+}
