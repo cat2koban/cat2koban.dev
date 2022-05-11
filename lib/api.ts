@@ -1,4 +1,5 @@
 import matter from 'gray-matter'
+import PostType from '../types/post'
 
 const API_TOKEN = process.env.ESA_API_TOKEN
 const TEAM = process.env.ESA_TEAM
@@ -36,7 +37,7 @@ function fetchAllPosts() {
   return fetchAPI(`?${param}`)
 }
 
-function mapPost(post: any, fields: string[] = []) {
+function mapPost(post: PostType, fields: string[] = []) {
   const {data, content} = matter(post.body_md)
   type Items = {
     [key: string]: string
@@ -68,11 +69,11 @@ function mapPost(post: any, fields: string[] = []) {
 
 export async function getPostBySlug(slug: string, fields: string[] = []) {
   const data = await fetchAllPosts()
-  const posts = data.posts.map((post: any) => mapPost(post, fields))
-  return posts.filter((post: any) => post.slug === slug)[0]
+  const posts = data.posts.map((post: PostType) => mapPost(post, fields))
+  return posts.filter((post: PostType) => post.slug === slug)[0]
 }
 
 export async function getAllPosts(fields: string[] = []) {
   const data = await fetchAllPosts()
-  return data.posts.map((post: any) => mapPost(post, fields))
+  return data.posts.map((post: PostType) => mapPost(post, fields))
 }
