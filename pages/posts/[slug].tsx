@@ -10,6 +10,7 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
+import { DateFormatter } from '../../components/date-formatter'
 
 type Props = {
   post: PostType
@@ -30,13 +31,26 @@ const Post = ({ post, preview }: Props) => {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
+            <article className="mb-32 max-w-2xl mx-auto">
               <Head>
                 <title>
                   {post.title} | cat2koban.dev 
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
               </Head>
+              <PostHeader title={post.title} date={post.date} />
+              <div className="flex mb-8">
+                <div className="flex">
+                  {Array.isArray(post.tags) ? (
+                    post.tags.map((tag) => (
+                      <span className="mr-2 font-light">
+                        #{tag}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="mr-2">{post.tags}</span>
+                  )}
+                </div>
+              </div>
               <PostBody content={post.content} />
             </article>
           </>
@@ -59,10 +73,8 @@ export async function getStaticProps({ params }: Params) {
     'title',
     'date',
     'slug',
-    'author',
     'content',
-    'ogImage',
-    'coverImage',
+    'tags',
   ])
   const content = await markdownToHtml(post.content || '')
 
