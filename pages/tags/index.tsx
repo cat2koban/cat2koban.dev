@@ -1,6 +1,5 @@
 import Layout from '../../components/layout'
 import { getAllTags } from '../../lib/api'
-import Link from 'next/link'
 import Head from 'next/head'
 import Header from '../../components/header'
 import Container from '../../components/container'
