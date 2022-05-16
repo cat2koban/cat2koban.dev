@@ -17,7 +17,7 @@ const PostLists = ({ posts }: Props) => {
           </Link>
           <br />
           <div className="mb-8 mt-1">
-            <small className="flex-initial w-24 mr-3">
+            <small className="flex-initial align-middle w-24 mr-3">
               <DateFormatter date={post.date} />
             </small>
             {post.tags.map((tag) => (
