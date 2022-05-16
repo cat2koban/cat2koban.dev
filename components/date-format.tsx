@@ -12,9 +12,9 @@ type Props = {
 };
 
 export const PostDateFormat: VFC<Props> = ({ date }) => (
-  <time className="text-gray-500" dateTime={date}>{dayjs(date).format('MMMM DD, YYYY')} ({dayjs(date).fromNow()})</time>
+  <time className="text-gray-500" dateTime={date}>{dayjs(date).format('YYYY-MM-DD')} ({dayjs(date).fromNow()})</time>
 )
 
 export const TitleDateFormat: VFC<Props> = ({ date }) => (
-  <time className="text-gray-500" dateTime={date}>{dayjs(date).format('MMMM DD, YYYY')}</time>
+  <time className="text-gray-500" dateTime={date}>{dayjs(date).format('YYYY-MM-DD')}</time>
 )
