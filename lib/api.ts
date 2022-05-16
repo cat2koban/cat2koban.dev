@@ -4,9 +4,9 @@ import PostType from '../types/post'
 const API_TOKEN = process.env.ESA_API_TOKEN
 const TEAM = process.env.ESA_TEAM
 const CATEGORY = process.env.ESA_CATEGORY
-const endpoint = `https://api.esa.io/v1/teams/${TEAM}/posts`
+const BASE_ENDPOINT = `https://api.esa.io/v1/teams/${TEAM}`
 
-async function fetchAPI(path: string) {
+async function fetchAPI(path: string, endpoint: string) {
   const res = await fetch(`${endpoint}${path}`, {
     headers: {'Authorization': `Bearer ${API_TOKEN}`}
   })
@@ -27,6 +27,7 @@ async function fetchAPI(path: string) {
 
 function fetchAllPosts() {
   const params = [['sort', 'created'], ['order', 'desc'], ['q', 'wip:false']]
+  const endpoint = `${BASE_ENDPOINT}/posts`
 
   if (!(typeof CATEGORY === 'undefined' || CATEGORY === '')) {
     params.push(['q', `on:${CATEGORY}`])
@@ -34,13 +35,22 @@ function fetchAllPosts() {
 
   const param = new URLSearchParams(params).toString()
 
-  return fetchAPI(`?${param}`)
+  return fetchAPI(`?${param}`, endpoint)
+}
+
+function fetchAllTags() {
+  const params = [['sort', 'created'], ['order', 'desc']]
+  const endpoint = `${BASE_ENDPOINT}/tags`
+
+  const param =  new URLSearchParams(params).toString()
+
+  return fetchAPI(`?${param}`, endpoint)
 }
 
 function mapPost(post: PostType, fields: string[] = []) {
   const {data, content} = matter(post.body_md)
   type Items = {
-    [key: string]: string
+    [key: string]: string | string[]
   }
   const items: Items = {}
 
@@ -55,6 +65,9 @@ function mapPost(post: PostType, fields: string[] = []) {
         break
       case 'content':
         items[field] = content
+        break
+      case 'tags':
+        items[field] = post.tags
         break
       default:
         if (data[field]) {
@@ -76,4 +89,9 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 export async function getAllPosts(fields: string[] = []) {
   const data = await fetchAllPosts()
   return data.posts.map((post: PostType) => mapPost(post, fields))
+}
+
+export async function getAllTags() {
+  const data = await fetchAllTags()
+  return data.tags
 }
