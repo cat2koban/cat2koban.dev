@@ -1,6 +1,6 @@
 import Post from '../types/post'
 import Link from 'next/link'
-import { DateFormatter } from './date-formatter'
+import { TitleDateFormat } from './date-format'
 import LinkTag from '../components/link-tag'
 
 type Props = {
@@ -18,7 +18,7 @@ const PostLists = ({ posts }: Props) => {
           <br />
           <div className="mb-8 mt-1">
             <small className="flex-initial align-middle w-24 mr-3">
-              <DateFormatter date={post.date} />
+              <TitleDateFormat date={post.date} />
             </small>
             {post.tags.map((tag) => (
               <LinkTag name={tag} href={`/tags/${tag}`}></LinkTag>
