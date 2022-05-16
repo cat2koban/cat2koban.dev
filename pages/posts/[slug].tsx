@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
+import Head from 'next/head'
+import LinkTag from '../../components/link-tag'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
 import Header from '../../components/header'
@@ -7,10 +9,8 @@ import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import PostType from '../../types/post'
-import { DateFormatter } from '../../components/date-formatter'
 
 type Props = {
   post: PostType
@@ -38,19 +38,13 @@ const Post = ({ post, preview }: Props) => {
                 </title>
               </Head>
               <PostHeader title={post.title} date={post.date} />
-              <div className="flex mb-8">
-                <div className="flex">
-                  {Array.isArray(post.tags) ? (
-                    post.tags.map((tag) => (
-                      <span className="mr-2 font-light">
-                        #{tag}
-                      </span>
-                    ))
-                  ) : (
-                    <span className="mr-2">{post.tags}</span>
-                  )}
-                </div>
-              </div>
+              {Array.isArray(post.tags) ? (
+                post.tags.map((tag) => (
+                  <LinkTag name={tag} href={`/tags/${tag}`}></LinkTag>
+                ))
+              ) : (
+                <LinkTag name={post.tags} href={`/tags/${post.tags}`}></LinkTag>
+              )}
               <PostBody content={post.content} />
             </article>
           </>
