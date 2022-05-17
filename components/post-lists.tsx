@@ -13,7 +13,7 @@ const PostLists = ({ posts }: Props) => {
       {posts.map((post) => (
         <h3 className="text-xl mb-8">
           <Link as={`/posts/${post.slug}`} href="/posts/[slug]">
-            <a className="hover:underline text-sky-600">{post.title}</a>
+            <a className="hover:underline hover:text-sky-600">{post.title}</a>
           </Link>
           <br />
           <div className="inline-block mb-2">
