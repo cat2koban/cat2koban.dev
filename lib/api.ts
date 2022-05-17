@@ -47,6 +47,12 @@ function fetchAllTags() {
   return fetchAPI(`?${param}`, endpoint)
 }
 
+function fetchSpecifiedPosts(tag: string) {
+  const params = [[`q=tag%3A${tag}`]]
+  const endpoint = `${BASE_ENDPOINT}/posts`
+  return fetchAPI(`?${params}`, endpoint)
+}
+
 function mapPost(post: PostType, fields: string[] = []) {
   const {data, content} = matter(post.body_md)
   type Items = {
@@ -94,4 +100,9 @@ export async function getAllPosts(fields: string[] = []) {
 export async function getAllTags() {
   const data = await fetchAllTags()
   return data.tags
+}
+
+export async function getAssociatedPosts(tag: string, fields: string[] = []) {
+  const data = await fetchSpecifiedPosts(tag)
+  return data.posts.map((post: PostType) => mapPost(post, fields))
 }
