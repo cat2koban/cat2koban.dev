@@ -16,10 +16,12 @@ const PostLists = ({ posts }: Props) => {
             <a className="hover:underline text-sky-600">{post.title}</a>
           </Link>
           <br />
-          <div className="mb-8 mt-1">
-            <small className="flex-initial align-middle w-24 mr-3">
+          <div className="inline-block mb-2">
+            <small className="align-middle w-24 mr-3">
               <TitleDateFormat date={post.date} />
             </small>
+          </div>
+          <div className="inline-block">
             {post.tags.map((tag) => (
               <LinkTag name={tag} href={`/tags/${tag}`}></LinkTag>
             ))}
