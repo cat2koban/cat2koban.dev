@@ -21,7 +21,7 @@ export default function Tags({ allTags }: Props){
         <div className="max-w-2xl mx-auto">
           <h2 className="font-bold text-3xl mb-8">Tags</h2>
           { allTags.map((tag) => (
-            <LinkTag name={tag.name} href={tag.name}></LinkTag>
+            <LinkTag name={tag.name} href={`/tags/${tag.name}`}></LinkTag>
           ))}
         </div>
       </Container>
