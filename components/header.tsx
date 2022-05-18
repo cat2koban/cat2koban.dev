@@ -11,32 +11,32 @@ const Header = () => {
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-2 md:mt-0 md:text-sm md:font-medium">
             <li>
               <Link href="/tags">
-                <a className="text-gray-500 font-normal text-lg hover:text-sky-700 hover:underline md:bg-transparent md:p-0">
+                <a className="font-normal text-lg hover:text-sky-700 hover:underline md:bg-transparent md:p-0">
                   tags
                 </a>
               </Link>
             </li>
             <li>
-              <span className="text-gray-500 font-normal text-lg md:bg-transparent md:p-0">
+              <span className="font-normal text-lg md:bg-transparent md:p-0">
                 /
               </span>
             </li>
             <li>
               <Link href="/about">
-                <a className="text-gray-500 font-normal text-lg hover:text-sky-700 hover:underline md:bg-transparent md:p-0">
+                <a className="font-normal text-lg hover:text-sky-700 hover:underline md:bg-transparent md:p-0">
                   about
                 </a>
               </Link>
             </li>
              <li>
-              <span className="text-gray-500 font-normal text-lg md:bg-transparent md:p-0">
+              <span className="font-normal text-lg md:bg-transparent md:p-0">
                 /
               </span>
             </li>
            <li>
-              <Link href="rss.xml">
-                <a className="text-gray-500 font-normal text-lg hover:text-sky-700 hover:underline md:bg-transparent md:p-0">
-                  rss
+              <Link href="/projects">
+                <a className="font-normal text-lg hover:text-sky-700 hover:underline md:bg-transparent md:p-0">
+                  projects 
                 </a>
               </Link>
             </li>

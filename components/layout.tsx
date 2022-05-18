@@ -1,3 +1,4 @@
+import Header from './header'
 import Footer from './footer'
 import Meta from './meta'
 
@@ -9,11 +10,17 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Meta />
-      <div className="min-h-screen">
-        <main>{children}</main>
+      <div className="flex flex-col min-h-screen">
+        <div className="top-0">
+          <Header />
+        </div>
+        <div className="flex-grow">
+          <main>{children}</main>
+        </div>
+        <div className="bottom-0">
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </>
   )
 }
