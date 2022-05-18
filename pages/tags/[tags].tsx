@@ -25,7 +25,21 @@ export default function TagsPosts({ posts, tag_name }: Props) {
         <Container>
           <Header />
           <div className="max-w-2xl mx-auto">
-            <div className="text-3xl mb-8"><span className="font-bold text-l">#{tag_name}</span>(<span className="text-red-500">{posts.length}</span>)</div>
+            <div className="text-3xl mb-8">
+              <span className="font-bold">
+                Tag
+              </span>
+              <div className="inline-block text-2xl ml-3">
+                <span>
+                  #{tag_name}
+                </span>
+                (
+                <span className="text-red-500">
+                  {posts.length}
+                </span>
+                )
+              </div>
+            </div>
             {posts.map((post) => (
               <h3 className="text-xl mb-8">
                 <Link as={`/posts/${post.slug}`} href="/posts/[slug]">
