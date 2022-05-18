@@ -9,7 +9,7 @@ import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import markdownToHtml from '../../lib/markdownToHtml'
+import markdownToHtml from 'zenn-markdown-html'
 import PostType from '../../types/post'
 
 type Props = {
