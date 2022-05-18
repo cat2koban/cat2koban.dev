@@ -6,7 +6,7 @@ type Props = { fullWidth?: boolean };
 export const Footer: React.VFC<Props> = ({ fullWidth }) => {
   const d = new Date();
   return (
-    <footer className="max-w-2xl mx-auto text-gray-500 bg-sky-100 px-1 py-2 mb-4 rounded">
+    <footer className="max-w-2xl mx-auto text-gray-500 mb-4">
       <div className="my-4 text-sm leading-6">
         <div className="flex justify-center">
           <a href="https://twitter.com/cat2koban" className="text-blue-400 text-2xl mr-4">
