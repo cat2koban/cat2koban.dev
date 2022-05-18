@@ -1,6 +1,6 @@
 import Header from './header'
 import Footer from './footer'
-import Meta from './meta'
+import Navbar from './navbar'
 
 type Props = {
   preview?: boolean
@@ -13,6 +13,7 @@ const Layout = ({ children }: Props) => {
       <div className="flex flex-col min-h-screen">
         <div className="top-0 px-5">
           <Header />
+          <Navbar />
         </div>
         <div className="flex-grow">
           <main>{children}</main>
