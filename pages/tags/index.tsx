@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Container from '../../components/container'
 import TagType from '../../types/tag'
 import LinkTag from '../../components/link-tag'
+import 'remixicon/fonts/remixicon.css'
 
 type Props = {
   allTags: TagType[]
@@ -17,7 +18,10 @@ export default function Tags({ allTags }: Props){
           <title>tags | cat2koban.dev</title>
         </Head>
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-bold text-3xl mb-8">Tags</h2>
+          <h2 className="font-bold text-3xl mb-8">
+            <i className="ri-price-tag-3-fill"></i>            
+            Tags
+          </h2>
           { allTags.map((tag) => (
             <LinkTag name={tag.name} href={`/tags/${tag.name}`}></LinkTag>
           ))}
