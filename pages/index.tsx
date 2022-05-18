@@ -3,7 +3,7 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import Post from '../types/post'
 import PostLists from '../components/post-lists'
-import Header from '../components/header'
+import Footer from '../components/footer'
 import Container from '../components/container'
 
 type Props = {
@@ -18,7 +18,6 @@ const Index = ({ allPosts }: Props) => {
           <title>cat2koban.dev</title>
         </Head>
         <Container>
-          <Header />
           <PostLists posts={allPosts} />
         </Container>
       </Layout>

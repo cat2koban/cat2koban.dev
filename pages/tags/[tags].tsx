@@ -2,10 +2,8 @@ import Head from 'next/head'
 import Link from "next/link"
 import Container from "../../components/container"
 import { TitleDateFormat } from "../../components/date-format"
-import Header from "../../components/header"
 import Layout from "../../components/layout"
 import LinkTag from "../../components/link-tag"
-import PostTitle from '../../components/post-title'
 import { getAllTags, getAssociatedPosts, getPostBySlug } from "../../lib/api"
 import PostType from "../../types/post"
 import TagType from '../../types/tag'
@@ -23,7 +21,6 @@ export default function TagsPosts({ posts, tag_name }: Props) {
           <title>{tag_name} | cat2koban.dev</title>
         </Head>
         <Container>
-          <Header />
           <div className="max-w-2xl mx-auto">
             <div className="text-3xl mb-8">
               <span className="font-bold">
