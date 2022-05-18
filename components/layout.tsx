@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <div className="top-0">
+        <div className="top-0 px-5">
           <Header />
         </div>
         <div className="flex-grow">
