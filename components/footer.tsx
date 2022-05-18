@@ -20,7 +20,7 @@ export const Footer: React.VFC<Props> = ({ fullWidth }) => {
       <div className="my-4 text-sm leading-6">
         <div className="flex justify-center">
           <span className="mr-4 align-middle">
-            © 2022 cat2koban.dev
+            © 2022 cat2koban
           </span>
         </div>
       </div>
