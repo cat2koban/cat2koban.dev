@@ -23,7 +23,9 @@ const PostLists = ({ posts }: Props) => {
           </div>
           <div className="inline-block">
             {post.tags.map((tag) => (
-              <LinkTag name={tag} href={`/tags/${tag}`}></LinkTag>
+              <div className="inline-block">
+                <LinkTag name={tag} href={`/tags/${tag}`}></LinkTag>
+              </div>
             ))}
           </div>
         </h3>
