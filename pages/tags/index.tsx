@@ -18,10 +18,12 @@ export default function Tags({ allTags }: Props){
           <title>tags | cat2koban.dev</title>
         </Head>
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-bold text-3xl mb-8">
+          <div className="font-bold text-3xl mb-8">
             <i className="ri-price-tag-3-fill"></i>            
-            Tags
-          </h2>
+            <span className="align-top ml-2">
+              Tags
+            </span>
+          </div>
           { allTags.map((tag) => (
             <LinkTag name={tag.name} href={`/tags/${tag.name}`}></LinkTag>
           ))}
