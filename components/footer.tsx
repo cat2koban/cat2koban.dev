@@ -8,7 +8,8 @@ export const Footer: React.VFC<Props> = ({ fullWidth }) => {
   return (
     <footer className="max-w-2xl mx-auto text-gray-500 mb-4">
       <div className="my-4 text-sm leading-6">
-        <div className="flex justify-center">
+        <hr className="text-gray-300" />
+        <div className="flex justify-center mt-8">
           <a href="https://twitter.com/cat2koban" className="text-blue-400 text-2xl mr-4">
             <i className="ri-twitter-fill"></i>
           </a>
